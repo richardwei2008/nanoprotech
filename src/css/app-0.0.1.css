@@ -1,0 +1,134 @@
+body, h1, h2, h3, h4, h5, h6, hr, p, dl, dt, dd, ul, ol, li, form, button, input, textarea, table, tbody, th, tr, td {
+    margin: 0;
+    border: 0;
+    padding: 0
+}
+
+body, html, form {
+    margin: 0;
+    padding: 0;
+    color: #FFFFFF;
+    background-color: #000000;
+    max-width: 1024px;
+    height: 100%;
+    -webkit-text-size-adjust: none;
+}
+a, a:link, a:visited, a:hover, a:active {
+    cursor: pointer;
+    text-decoration: none;
+    color: #FFFFFF;
+}
+img {
+    border: 0;
+    max-width: 100%;
+}
+
+.home {
+    background: url('../images/home.jpg') no-repeat!important;
+    background-position: center!important;
+    background-size: 100% 100%!important;
+    -webkit-background-size: 100% 100% !important;
+    -moz-background-size: 100% 100%!important;
+    -o-background-size: 100% 100%!important;
+    width: 100%!important;
+    padding-left: 0!important;
+    padding-right: 0!important;
+    /*background-color: #000000!important;*/
+    /*height: auto;*/
+    /*padding-bottom: 60px;*/
+}
+.home-footer {
+    position: absolute;
+    bottom: 0;
+    height: 180px!important;
+    width: 100%!important;
+    max-width: 1024px;
+    color: #FFFFFF;
+    background-color: none!important;
+    padding-bottom: 0px!important;
+    border: 0!important;
+}
+.home-bottom {
+    position: relative;
+    height: 160px;
+    width: 100%;
+}
+.home-table {
+    height: 160px;
+    width: 100%;
+    border-spacing :0!important;
+}
+.home-table-left {
+    border-right: 2px solid;
+    border-color: rgb(17, 46, 127) ;
+    vertical-align:middle;
+    text-align: center;
+}
+.home-table-right {
+    border-left: 2px solid;
+    border-color: rgb(17, 46, 127) ;
+    vertical-align:middle;
+    text-align: center;
+}
+
+.ui-enter-house {
+    background: url('../images/house_80.jpg') no-repeat!important;
+    background-position: center!important;
+    background-size: 100% 100%!important;
+    -webkit-background-size: 100% 100% !important;
+    -moz-background-size: 100% 100%!important;
+    -o-background-size: 100% 100%!important;
+    width: 80px;
+    height: 120px;
+    margin-left: 40px;
+    padding-left: 0!important;
+    padding-right: 0!important;
+}
+.ui-enter-car {
+    background: url('../images/car_80.jpg') no-repeat!important;
+    background-position: center!important;
+    background-size: 100% 100%!important;
+    -webkit-background-size: 100% 100% !important;
+    -moz-background-size: 100% 100%!important;
+    -o-background-size: 100% 100%!important;
+    width: 80px;
+    height: 120px;
+    margin-left: 40px;
+    padding-left: 0!important;
+    padding-right: 0!important;
+}
+.ui-link-enter-house {
+    margin: 0 auto;
+    padding-top: 5px;
+    font-size: 9px;
+    color: rgb(243, 138, 31);
+}
+.ui-link-enter-car {
+    margin: 0 auto;
+    padding-top: 5px;
+    font-size: 9px;
+    color: rgb(243, 138, 31);
+}
+a:link {
+    color: rgb(243, 138, 31);
+}
+a:visited {
+    color: rgb(17, 46, 127)!important;
+}
+/*.ui-button-border-custom {*/
+    /*position: relative;*/
+    /*align: center;*/
+    /*border: 3px solid;*/
+    /*-moz-border-radius: 10px;      *//* Gecko browsers */
+    /*-webkit-border-radius: 10px;   *//* Webkit browsers */
+    /*border-radius:10px;            *//* W3C syntax */
+    /*height: 25px;*/
+    /*border-color: #FFFFFF;*/
+    /*margin: 0 auto;*/
+    /*padding-top: 5px;*/
+    /*color: #FFFFFF;*/
+    /*font-family: fzhs;*/
+    /*font-size: 12pt;*/
+    /*text-align: center;*/
+    /*vertical-align: middle;*/
+/*}*/
