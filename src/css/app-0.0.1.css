@@ -26,7 +26,14 @@ img {
     max-width: 100%;
 }
 
-
+.ui-header-custom {
+    text-align: right;
+    padding-top: 0.5em;
+    padding-right: 1em;
+}
+.ui-content-custom {
+    padding: 0!important;
+}
 .page-home {
     background: url('../images/home.jpg') no-repeat!important;
     background-position: center!important;
@@ -103,9 +110,9 @@ img {
 }
 .ui-link-back-home {
     position: relative;
-    float: right;
+    /*float: right;*/
     padding-top: 10px;
-    right: 10px;
+    right: 2em;
 }
 .ui-link-enter-house {
     margin: 0 auto;
@@ -167,3 +174,59 @@ img {
     /*text-align: center;*/
     /*vertical-align: middle;*/
 /*}*/
+
+.car-footer {
+    position: absolute;
+    bottom: 0;
+    height: 250px!important;
+    width: 100%!important;
+    max-width: 1024px;
+    color: #FFFFFF;
+    background-color: none!important;
+    padding-bottom: 0px!important;
+    border: 0!important;
+}
+.car-bottom {
+    position: relative;
+    height: 250px;
+    width: 100%;
+}
+.ui-car-icon-yellow {
+    background: url('../images/n_yellow_32.png') no-repeat!important;
+    background-position: center!important;
+    background-size: 100% 100%!important;
+    -webkit-background-size: 100% 100% !important;
+    -moz-background-size: 100% 100%!important;
+    -o-background-size: 100% 100%!important;
+    width: 32px;
+    height: 46px;
+    margin-left: 0.1em;
+    padding-left: 0!important;
+    padding-right: 0!important;
+}
+.ui-car-icon-red {
+    background: url('../images/n_red_32.png') no-repeat!important;
+    background-position: center!important;
+    background-size: 100% 100%!important;
+    -webkit-background-size: 100% 100% !important;
+    -moz-background-size: 100% 100%!important;
+    -o-background-size: 100% 100%!important;
+    width: 32px;
+    height: 46px;
+    margin-left: 0.1em;
+    padding-left: 0!important;
+    padding-right: 0!important;
+}
+.ui-car-icon-blue {
+    background: url('../images/n_blue_32.png') no-repeat!important;
+    background-position: center!important;
+    background-size: 100% 100%!important;
+    -webkit-background-size: 100% 100% !important;
+    -moz-background-size: 100% 100%!important;
+    -o-background-size: 100% 100%!important;
+    width: 32px;
+    height: 46px;
+    margin-left: 0.1em;
+    padding-left: 0!important;
+    padding-right: 0!important;
+}
