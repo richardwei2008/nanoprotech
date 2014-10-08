@@ -1,0 +1,60 @@
+.swiper-container {
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
+    -o-backface-visibility: hidden;
+    backface-visibility: hidden;
+    z-index: 1;
+}
+.tpl-fbb .swiper-container .swiper-slide a {
+    width: 85px;
+    height: 188px;
+    background-color: rgba(0,0,0,0.6);
+    float: left;
+    position: relative;
+}
+.tpl-fbb-item-wrap {
+    position: absolute;
+    z-index: 10;
+    width: 100%;
+}
+.tpl-fbb-item-name {
+    font-size: 16px;
+    margin: 12px auto 6px;
+    height: 24px;
+    overflow: hidden;
+    width: 100%;
+}
+.tpl-fbb-item-line {
+    border-bottom: 1px solid #4d4948;
+    width: 80px;
+    margin: 0 auto;
+}
+.tpl-fbb-item-icon {
+    margin: 12px auto 6px;
+    width: 30px;
+    height: 30px;
+}
+.tpl-fbb-item-text {
+    font-size: 12px;
+    text-align: left;
+    width: 73px;
+    height: 54px;
+    line-height: 18px;
+    margin: 0 auto;
+    padding-top: 7px;
+    color: #F0F0F0;
+    overflow: hidden;
+    word-break: break-word;
+}
+.tpl-fbb-item-date {
+    font-size: 16px;
+    text-align: center;
+    height: 34px;
+    line-height: 34px;
+    color: #f0f0f0;
+    overflow: hidden;
+}

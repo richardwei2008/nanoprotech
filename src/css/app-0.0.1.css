@@ -33,6 +33,7 @@ img {
 }
 .ui-content-custom {
     padding: 0!important;
+    height: 326px;
 }
 .page-home {
     background: url('../images/home.jpg') no-repeat!important;
@@ -191,6 +192,15 @@ img {
     height: 250px;
     width: 100%;
 }
+.ui-car-icon-common {
+    width: 32px;
+    height: 46px;
+    margin-left: 0.2em;
+    padding-left: 0!important;
+    padding-right: 0!important;
+    border: 1px solid;
+    border-color: rgb(17, 46, 127) ;
+}
 .ui-car-icon-yellow {
     background: url('../images/n_yellow_32.png') no-repeat!important;
     background-position: center!important;
@@ -198,11 +208,7 @@ img {
     -webkit-background-size: 100% 100% !important;
     -moz-background-size: 100% 100%!important;
     -o-background-size: 100% 100%!important;
-    width: 32px;
-    height: 46px;
-    margin-left: 0.1em;
-    padding-left: 0!important;
-    padding-right: 0!important;
+
 }
 .ui-car-icon-red {
     background: url('../images/n_red_32.png') no-repeat!important;
@@ -211,11 +217,6 @@ img {
     -webkit-background-size: 100% 100% !important;
     -moz-background-size: 100% 100%!important;
     -o-background-size: 100% 100%!important;
-    width: 32px;
-    height: 46px;
-    margin-left: 0.1em;
-    padding-left: 0!important;
-    padding-right: 0!important;
 }
 .ui-car-icon-blue {
     background: url('../images/n_blue_32.png') no-repeat!important;
@@ -224,9 +225,4 @@ img {
     -webkit-background-size: 100% 100% !important;
     -moz-background-size: 100% 100%!important;
     -o-background-size: 100% 100%!important;
-    width: 32px;
-    height: 46px;
-    margin-left: 0.1em;
-    padding-left: 0!important;
-    padding-right: 0!important;
 }

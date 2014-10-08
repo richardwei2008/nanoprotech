@@ -4,7 +4,7 @@
     width: 100%;
     height: 250px;
     color: #fff;
-    background: #222;
+    background: rgba(34, 34, 34, 0.5);
     text-align: center;
 }
 .swiper-slide {
@@ -37,6 +37,30 @@
     -ms-transform: scale(1);
     -o-transform: scale(1);
     transform: scale(1);
+}
+.black-slide {
+    background: #0F0912;
+    opacity: 0.8;
+}
+.n-yellow-first-slide {
+     background: url('../images/n_yellow_description.png') no-repeat!important;
+     background-position: center!important;
+     background-size: 100% 100%!important;
+     -webkit-background-size: 100% 100% !important;
+     -moz-background-size: 100% 100%!important;
+     -o-background-size: 100% 100%!important;
+     width: auto;
+     height: 250px;
+ }
+.n-yellow-last-slide {
+    background: url('../images/n_yellow_show.png') no-repeat!important;
+    background-position: center!important;
+    background-size: 100% 100%!important;
+    -webkit-background-size: 100% 100% !important;
+    -moz-background-size: 100% 100%!important;
+    -o-background-size: 100% 100%!important;
+    width: auto;
+    height: 250px;
 }
 .red-slide {
     background: #ca4040;
@@ -92,4 +116,52 @@
 }
 .swiper-active-switch {
     background: #fff;
+}
+
+.ui-car-light-common {
+    background: url('../images/light_16.png') no-repeat!important;
+    background-position: center!important;
+    background-size: 100% 100%!important;
+    -webkit-background-size: 100% 100% !important;
+    -moz-background-size: 100% 100%!important;
+    -o-background-size: 100% 100%!important;
+    width: 16px;
+    height: 16px;
+}
+.ui-car-icon-common-visible {
+    opacity: 1;
+}
+.ui-car-icon-common-invisible {
+    opacity: 0;
+}
+.ui-car-wheel-light {
+    position: relative;
+    top:60px;
+    left:140px;
+}
+
+.ui-car-lock-light {
+    position: relative;
+    top:10px;
+    left:200px;
+}
+
+.ui-car-door-light {
+    position: relative;
+    top:-40px;
+    left:250px;
+}
+
+
+.ui-car-back-light {
+    position: relative;
+    top:-120px;
+    left:280px;
+}
+
+.ui-car-hood-light {
+    position: relative;
+    float: left;
+    top:-40px;
+    left:60px;
 }
