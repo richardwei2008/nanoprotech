@@ -1,8 +1,8 @@
 
-.swiper-container {
+.yellow-swiper-container {
     /*width: 660px;*/
     width: 100%;
-    height: 250px;
+    height: 100%;
     color: #fff;
     background: rgba(34, 34, 34, 0.5);
     text-align: center;
@@ -50,7 +50,7 @@
      -moz-background-size: 100% 100%!important;
      -o-background-size: 100% 100%!important;
      width: auto;
-     height: 250px;
+     height: 100%;
  }
 .n-yellow-last-slide {
     background: url('../images/n_yellow_show.png') no-repeat!important;
@@ -60,7 +60,7 @@
     -moz-background-size: 100% 100%!important;
     -o-background-size: 100% 100%!important;
     width: auto;
-    height: 250px;
+    height: 100%;
 }
 .red-slide {
     background: #ca4040;
@@ -129,10 +129,10 @@
     height: 16px;
 }
 .ui-car-icon-common-visible {
-    opacity: 1;
+    visibility: visible;
 }
 .ui-car-icon-common-invisible {
-    opacity: 0;
+    visibility: hidden;
 }
 .ui-car-wheel-light {
     position: relative;
@@ -148,14 +148,14 @@
 
 .ui-car-door-light {
     position: relative;
-    top:-40px;
+    top:-50px;
     left:250px;
 }
 
 
 .ui-car-back-light {
     position: relative;
-    top:-120px;
+    top:-100px;
     left:280px;
 }
 
@@ -164,4 +164,14 @@
     float: left;
     top:-40px;
     left:60px;
+}
+
+.ui-yellow-swiper {
+    display: block;
+}
+.ui-red-swiper {
+    display: none;
+}
+.ui-blue-swiper {
+    display: none;
 }

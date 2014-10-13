@@ -25,15 +25,7 @@
 
     <script type="text/javascript">
         $(window).ready(function () {
-            var lights = ["first", "wheel-light", "lock-light", "door-light", "back-light", "hood-light", "last"];
-            setTimeout(function () {
-                setInterval(function () {
-                    return function() {
-                        $("#wheel-light").fadeToggle("slow");
-                    }();
-                }, 2000);
-            }, 0);
-            var mySwiper = new Swiper('.swiper-container',{
+            var myYellowSwiper = new Swiper('.yellow-swiper-container',{
                 pagination: '.pagination',
                 paginationClickable: true,
                 centeredSlides: true,
@@ -43,32 +35,32 @@
                 onTouchMove : function() {
                     $(".ui-car-light-common").removeClass("ui-car-icon-common-visible");
                     $(".ui-car-light-common").addClass("ui-car-icon-common-invisible");
-                    switch (mySwiper.activeIndex) {
+                    switch (myYellowSwiper.activeIndex) {
                         case 0:
-                            $("#"+lights[mySwiper.activeIndex + 1]).removeClass("ui-car-icon-common-invisible");
-                            $("#"+lights[mySwiper.activeIndex + 1]).addClass("ui-car-icon-common-visible");
+                            $("#"+lights[myYellowSwiper.activeIndex + 1]).removeClass("ui-car-icon-common-invisible");
+                            $("#"+lights[myYellowSwiper.activeIndex + 1]).addClass("ui-car-icon-common-visible");
                         case 1:
-                            $("#"+lights[mySwiper.activeIndex]).removeClass("ui-car-icon-common-invisible");
-                            $("#"+lights[mySwiper.activeIndex]).addClass("ui-car-icon-common-visible");
-                            $("#"+lights[mySwiper.activeIndex + 1]).removeClass("ui-car-icon-common-invisible");
-                            $("#"+lights[mySwiper.activeIndex + 1]).addClass("ui-car-icon-common-visible");
+                            $("#"+lights[myYellowSwiper.activeIndex]).removeClass("ui-car-icon-common-invisible");
+                            $("#"+lights[myYellowSwiper.activeIndex]).addClass("ui-car-icon-common-visible");
+                            $("#"+lights[myYellowSwiper.activeIndex + 1]).removeClass("ui-car-icon-common-invisible");
+                            $("#"+lights[myYellowSwiper.activeIndex + 1]).addClass("ui-car-icon-common-visible");
                         case 2:
                         case 3:
                         case 4:
-                            $("#"+lights[mySwiper.activeIndex - 1]).removeClass("ui-car-icon-common-invisible");
-                            $("#"+lights[mySwiper.activeIndex - 1]).addClass("ui-car-icon-common-visible");
-                            $("#"+lights[mySwiper.activeIndex]).removeClass("ui-car-icon-common-invisible");
-                            $("#"+lights[mySwiper.activeIndex]).addClass("ui-car-icon-common-visible");
-                            $("#"+lights[mySwiper.activeIndex + 1]).removeClass("ui-car-icon-common-invisible");
-                            $("#"+lights[mySwiper.activeIndex + 1]).addClass("ui-car-icon-common-visible");
+                            $("#"+lights[myYellowSwiper.activeIndex - 1]).removeClass("ui-car-icon-common-invisible");
+                            $("#"+lights[myYellowSwiper.activeIndex - 1]).addClass("ui-car-icon-common-visible");
+                            $("#"+lights[myYellowSwiper.activeIndex]).removeClass("ui-car-icon-common-invisible");
+                            $("#"+lights[myYellowSwiper.activeIndex]).addClass("ui-car-icon-common-visible");
+                            $("#"+lights[myYellowSwiper.activeIndex + 1]).removeClass("ui-car-icon-common-invisible");
+                            $("#"+lights[myYellowSwiper.activeIndex + 1]).addClass("ui-car-icon-common-visible");
                         case 5:
-                            $("#"+lights[mySwiper.activeIndex - 1]).removeClass("ui-car-icon-common-invisible");
-                            $("#"+lights[mySwiper.activeIndex - 1]).addClass("ui-car-icon-common-visible");
-                            $("#"+lights[mySwiper.activeIndex]).removeClass("ui-car-icon-common-invisible");
-                            $("#"+lights[mySwiper.activeIndex]).addClass("ui-car-icon-common-visible");
+                            $("#"+lights[myYellowSwiper.activeIndex - 1]).removeClass("ui-car-icon-common-invisible");
+                            $("#"+lights[myYellowSwiper.activeIndex - 1]).addClass("ui-car-icon-common-visible");
+                            $("#"+lights[myYellowSwiper.activeIndex]).removeClass("ui-car-icon-common-invisible");
+                            $("#"+lights[myYellowSwiper.activeIndex]).addClass("ui-car-icon-common-visible");
                         case 6:
-                            $("#"+lights[mySwiper.activeIndex - 1]).removeClass("ui-car-icon-common-invisible");
-                            $("#"+lights[mySwiper.activeIndex - 1]).addClass("ui-car-icon-common-visible");
+                            $("#"+lights[myYellowSwiper.activeIndex - 1]).removeClass("ui-car-icon-common-invisible");
+                            $("#"+lights[myYellowSwiper.activeIndex - 1]).addClass("ui-car-icon-common-visible");
                         default :
                             break;
                     }
@@ -89,6 +81,17 @@
             })
 
 
+            var lights = ["first", "wheel-light", "lock-light", "door-light", "back-light", "hood-light", "last"];
+            setTimeout(function () {
+                setInterval(function () {
+                    return function() {
+                        $("#wheel-light").fadeToggle("slow");
+                    }();
+                }, 2000);
+            }, 0);
+
+
+
         });
     </script>
 </head>
@@ -100,9 +103,16 @@
     </div>
     <div class="ui-content-custom" data-role="content" data-theme="d">
         <div id="center" class="center">
-            <div class="ui-car-icon-common ui-car-icon-yellow"></div>
-            <div class="ui-car-icon-common ui-car-icon-red"></div>
-            <div class="ui-car-icon-common ui-car-icon-blue"></div>
+            <div class="ui-car-icon-common ui-car-icon-common-active">
+                <!--<div class="ui-car-icon-yellow "></div>-->
+                <img src="images/n_yellow_64.png">
+            </div>
+            <div class="ui-car-icon-common">
+                <img src="images/n_red_64.png">
+            </div>
+            <div class="ui-car-icon-common-last ui-car-icon-common ">
+                <img src="images/n_blue_64.png">
+            </div>
 
             <div id="wheel-light" class="ui-car-light-common ui-car-icon-common-visible ui-car-wheel-light"></div>
             <div id="lock-light" class="ui-car-light-common ui-car-icon-common-invisible ui-car-lock-light"></div>
@@ -113,11 +123,9 @@
     </div>
     <div id="footer" data-role="footer" class="footer car-footer" data-position="fixed" >
         <div class="car-bottom" align="center">
-            <div class="swiper-container swiper-content">
+            <div class="yellow-swiper-container swiper-content">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide black-slide n-yellow-first-slide">
-
-                    </div>
+                    <div class="swiper-slide black-slide n-yellow-first-slide"></div>
                     <div class="swiper-slide black-slide">
                         <div class="tpl-fbb-item-wrap">
                             <div class="tpl-fbb-item-name">
