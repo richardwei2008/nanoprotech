@@ -6,31 +6,32 @@ App = {
         "use strict";
         Beyond.Common.alert(this.Config.DEBUG, obj);
     },
-
-    mySwiper: null,
-
+//
+//    mySwiper: null,
+//
     formatRedirectUri : function(relativeTargetUri) {
         return (function() {
-            return 'http://' + window.location.hostname + '/' + App.Config.ROOT + '/' + relativeTargetUri;
+            return 'http://' + window.location.hostname + ":" + window.location.port+ '/' + App.Config.ROOT + '/' + relativeTargetUri;
         }());
-    },
-
-    initSwiper: function() {
-        mySwiper = new Swiper('.swiper-container',{
-            pagination: '.pagination',
-            loop:true,
-            grabCursor: true,
-            paginationClickable: false
-        });
-        $("#arrow-left").click(function(e){
-            e.preventDefault();
-            mySwiper.swipeNext();
-        });
-        $("#arrow-right").click( function(e){
-            e.preventDefault();
-            mySwiper.swipePrev();
-        });
     }
+//
+//    initSwiper: function() {
+//        mySwiper = new Swiper('.swiper-container',{
+//            pagination: '.pagination',
+//            loop:true,
+//            grabCursor: true,
+//            paginationClickable: false
+//        });
+//        $("#arrow-left").click(function(e){
+//            e.preventDefault();
+//            mySwiper.swipeNext();
+//        });
+//        $("#arrow-right").click( function(e){
+//            e.preventDefault();
+//            mySwiper.swipePrev();
+//        });
+//
+//    }
 
 };
 

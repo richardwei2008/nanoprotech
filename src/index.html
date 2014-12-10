@@ -20,7 +20,11 @@
 
     <script type="text/javascript">
         $(window).ready(function () {
-
+            var enterCar = function() {
+                window.location.href = "car.html";
+            };
+            $("#enter-car-image").bind("click", enterCar);
+            $("#enter-car-link").bind("click", enterCar);
         });
     </script>
 </head>
@@ -28,28 +32,35 @@
 
 <div id="page" data-role="page" class="page-home" data-theme="d">
     <div data-role="content" data-theme="d">
-        <div id="center" class="center"></div>
+        <div id="center" class="center">
+            <table class="home-table" align="center">
+                <tr>
+                    <td class="home-table-upper">
+                        <a id="enter-car-image" href="#"><div class="ui-enter-car" align="center"></div></a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="home-table-upper">
+                        <a id="enter-car-link" class="ui-link-enter-car" href="#" align="center">汽车使用场景</a>
+                    </td>
+                </tr>
+                <!--<tr>-->
+                <!--<td class="home-table-lower">-->
+                <!--<a class="ui-link-enter-house" href="house.html" align="center">居家使用场景</a>-->
+                <!--</td>-->
+                <!--</tr>-->
+                <!--<tr>-->
+
+                <!--<td class="home-table-lower">-->
+                <!--<div class="ui-enter-house" align="center"></div>-->
+                <!--</td>-->
+                <!--</tr>-->
+            </table>
+        </div>
     </div>
     <div id="footer" data-role="footer" class="footer home-footer" data-position="fixed" >
         <div class="home-bottom" align="center">
-            <table class="home-table" align="center">
-                <tr>
-                    <td class="home-table-left">
-                        <div class="ui-enter-house" align="center"></div>
-                    </td>
-                    <td class="home-table-right">
-                        <div class="ui-enter-car" align="center"></div>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="home-table-left">
-                        <a class="ui-link-enter-house" href="house.html" align="center">居家使用场景</a>
-                    </td>
-                    <td class="home-table-right">
-                        <a class="ui-link-enter-car" href="car.html" align="center">汽车使用场景</a>
-                    </td>
-                </tr>
-            </table>
+
         </div>
     </div>
 </div>

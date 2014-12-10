@@ -16,194 +16,180 @@
     <link rel="stylesheet" type="text/css" href="css/showcase.css">
     <link rel="stylesheet" type="text/css" href="css/car-slide.css">
 
+
     <script src="js/jquery-1.11.1.min.js" type="text/javascript"></script>
+    <script src="js/jquery.tmpl.js" type="text/javascript"></script>
     <script src="js/jquery.mobile-1.4.4.min.js" type="text/javascript"></script>
-    <script src="js/idangerous.swiper-2.7.0.js" type="text/javascript"></script>
+    <script src="js/idangerous.swiper-2.7.0.min.js" type="text/javascript"></script>
 
     <script src="js/app.config.js"></script>
     <script src="js/app.js"></script>
+    <script>
+        $(window).load(function () {
+            var back = function() {
+                window.location.href = "index.html";
+            };
+            $("#home").bind("click", back);
 
-    <script type="text/javascript">
-        $(window).ready(function () {
-            var myYellowSwiper = new Swiper('.yellow-swiper-container',{
-                pagination: '.pagination',
-                paginationClickable: true,
-                centeredSlides: true,
-                slidesPerView: 3,
-                watchActiveIndex: true,
-                // when slide
-                onTouchMove : function() {
+            var getCategory = function() {
+                return function() {
+                    var category = $(".ui-car-icon-active").attr("id");
+                    return category;
+                }();
+            };
+            var rhLights = ["wheel-light", "lock-light", "door-light", "hood-light", "hood-light", "hood-light", "hood-light"];
+            var kxLights = ["wheel-light", "lock-light"];
+            var jyLights = ["hood-light", "hood-light"];
+
+            var getLights = function() {
+                return function() {
+                    var category = getCategory();
+                    var theLights = rhLights;
+                    switch (category) {
+                        case "rh":
+                            theLights = rhLights;
+                            break;
+                        case "kx":
+                            theLights = kxLights;
+                            break;
+                        case "jy":
+                            theLights = jyLights;
+                            break;
+                        default: break;
+                    }
+                    return theLights;
+                }();
+            }
+
+            var intervalId = null;
+            var myFirstLightFlash = function(id, category) {
+                return function() {
+                    $("#" + id + "-" + category).css({opacity:0.01}, "slow").stop().animate({opacity: '1'}, "slow");
+                }();
+            }; // id, category
+
+            var myCarSlideChanged = function() {
+                return function() {
+                    $(".ui-car-light-common").css({opacity:0.01});
                     $(".ui-car-light-common").removeClass("ui-car-icon-common-visible");
                     $(".ui-car-light-common").addClass("ui-car-icon-common-invisible");
-                    switch (myYellowSwiper.activeIndex) {
-                        case 0:
-                            $("#"+lights[myYellowSwiper.activeIndex + 1]).removeClass("ui-car-icon-common-invisible");
-                            $("#"+lights[myYellowSwiper.activeIndex + 1]).addClass("ui-car-icon-common-visible");
-                        case 1:
-                            $("#"+lights[myYellowSwiper.activeIndex]).removeClass("ui-car-icon-common-invisible");
-                            $("#"+lights[myYellowSwiper.activeIndex]).addClass("ui-car-icon-common-visible");
-                            $("#"+lights[myYellowSwiper.activeIndex + 1]).removeClass("ui-car-icon-common-invisible");
-                            $("#"+lights[myYellowSwiper.activeIndex + 1]).addClass("ui-car-icon-common-visible");
-                        case 2:
-                        case 3:
-                        case 4:
-                            $("#"+lights[myYellowSwiper.activeIndex - 1]).removeClass("ui-car-icon-common-invisible");
-                            $("#"+lights[myYellowSwiper.activeIndex - 1]).addClass("ui-car-icon-common-visible");
-                            $("#"+lights[myYellowSwiper.activeIndex]).removeClass("ui-car-icon-common-invisible");
-                            $("#"+lights[myYellowSwiper.activeIndex]).addClass("ui-car-icon-common-visible");
-                            $("#"+lights[myYellowSwiper.activeIndex + 1]).removeClass("ui-car-icon-common-invisible");
-                            $("#"+lights[myYellowSwiper.activeIndex + 1]).addClass("ui-car-icon-common-visible");
-                        case 5:
-                            $("#"+lights[myYellowSwiper.activeIndex - 1]).removeClass("ui-car-icon-common-invisible");
-                            $("#"+lights[myYellowSwiper.activeIndex - 1]).addClass("ui-car-icon-common-visible");
-                            $("#"+lights[myYellowSwiper.activeIndex]).removeClass("ui-car-icon-common-invisible");
-                            $("#"+lights[myYellowSwiper.activeIndex]).addClass("ui-car-icon-common-visible");
-                        case 6:
-                            $("#"+lights[myYellowSwiper.activeIndex - 1]).removeClass("ui-car-icon-common-invisible");
-                            $("#"+lights[myYellowSwiper.activeIndex - 1]).addClass("ui-car-icon-common-visible");
-                        default :
-                            break;
+
+                    var category = getCategory();
+                    console.log("Category: " + category);
+                    var theLights = getLights();
+
+                    var slideLength = theLights.length;
+                    console.log("Slide Length: " + slideLength);
+                    var activeIndex = mySwiper.activeIndex;
+                    if (activeIndex > slideLength) {
+                        activeIndex = 1;
                     }
+                    if (activeIndex < 1) {
+                        activeIndex = slideLength;
+                    }
+                    console.log("Active Index: " + activeIndex);
+
+
+
+                    var lightId = "#" + theLights[activeIndex - 1] + "-" + category;
+                    console.log("Active Light ID " + lightId);
+                    $(lightId).removeClass("ui-car-icon-common-invisible");
+                    $(lightId).addClass("ui-car-icon-common-visible");
+                    $(".ui-car-icon-common-visible").css({opacity: 1});
+                    clearInterval(intervalId);
                     setTimeout(function () {
-                        setInterval(function () {
+                        intervalId = setInterval(function () {
                             return function() {
                                 var actives = $(".ui-car-light-common");
                                 for (var i=0; i < actives.length; i++) {
-                                    if (!$(actives[i]).hasClass("ui-car-icon-common-invisible")) {
-                                        $(actives[i]).fadeToggle("slow");
+                                    var active = actives[i];
+                                    if ($(active).hasClass("ui-car-icon-common-visible")) {
+                                        console.log("Fade Index " + i);
+                                        console.log("Active ID " + active.id);
+                                        $(active).css({opacity:0.01}).stop().animate({opacity: '1'}, "slow");
+                                    } else {
+                                        $(active).css({opacity:0.01});
                                     }
                                 }
-                                //                    $(".ui-car-light-common").fadeToggle("slow");
                             }();
                         }, 2000);
                     }, 0);
-                }
+                }();
+            };
+            var mySwiper = new Swiper('.swiper-container',{
+                pagination: '.pagination',
+                paginationClickable: true,
+                slidesPerView: 1,
+                loop: true,
+                category : "rh",
+                // when slide
+                onSlideChangeEnd : myCarSlideChanged
+            });
+            var renderLights = function(category) {
+                return function() {
+                    mySwiper.removeAllSlides();
+                    $("#lights").empty();
+                    $("#template-light-" + category).children(".ui-car-light-common").each(function(i) {
+                        $("#lights").append($.clone(this));
+                    });
+                    $(".ui-car-light-common").css("background", "url('images/" + category + "_light_16.png" + "')");
+
+                    $(mySwiper).unbind("onSlideChangeEnd").bind("onSlideChangeEnd", myCarSlideChanged);
+
+                    setTimeout(function () {
+                        intervalId = setInterval(function () {
+                            var theLights = getLights();
+                            myFirstLightFlash(theLights[0], category);
+                        }, 2000);
+                    }, 0);
+                }(category);
+            };
+            var renderSlides = function(category) {
+                return function() {
+                    mySwiper.removeAllSlides();
+                    $("#swiper-slides").empty();
+                    $("#template-slide-" + category).children(".swiper-slide").each(function(i) {
+                        mySwiper.appendSlide($.clone(this));
+                    });
+                    mySwiper.swipeNext();
+                }(category);
+            };
+            renderLights("rh");
+            renderSlides("rh");
+            console.log("Active Index: " + mySwiper.activeIndex);
+            $(".ui-car-icon-common").unbind("click").bind("click", function() {
+                $(".ui-car-icon-common").removeClass("ui-car-icon-active");
+                $(this).addClass("ui-car-icon-active");
+                console.log(this.id);
+                renderLights(this.id);
+                renderSlides(this.id);
             })
-
-
-            var lights = ["first", "wheel-light", "lock-light", "door-light", "back-light", "hood-light", "last"];
-            setTimeout(function () {
-                setInterval(function () {
-                    return function() {
-                        $("#wheel-light").fadeToggle("slow");
-                    }();
-                }, 2000);
-            }, 0);
-
-
-
         });
+
+
     </script>
 </head>
 <body>
 
 <div id="page" data-role="page" class="page-car" data-theme="d">
     <div class="ui-header-custom" data-role="header">
-        <a class="ui-link-back-home" data-role="none" href="index.html" align="right">返回首页</a>
+        <a id="home" class="ui-link-back-home" data-role="none" href="#" align="right"><img src="images/back_32.png"></a>
     </div>
     <div class="ui-content-custom" data-role="content" data-theme="d">
-        <div id="center" class="center">
-            <div class="ui-car-icon-common ui-car-icon-common-active">
-                <!--<div class="ui-car-icon-yellow "></div>-->
-                <img src="images/n_yellow_64.png">
-            </div>
-            <div class="ui-car-icon-common">
-                <img src="images/n_red_64.png">
-            </div>
-            <div class="ui-car-icon-common-last ui-car-icon-common ">
-                <img src="images/n_blue_64.png">
-            </div>
+        <div id="center" class="center ui-car-background">
+            <div id="rh" class="ui-car-icon-common ui-car-icon-yellow ui-car-icon-active"></div>
+            <div id="kx" class="ui-car-icon-common ui-car-icon-red"></div>
+            <div id="jy" class="ui-car-icon-common ui-car-icon-blue"></div>
+            <div id="lights">
 
-            <div id="wheel-light" class="ui-car-light-common ui-car-icon-common-visible ui-car-wheel-light"></div>
-            <div id="lock-light" class="ui-car-light-common ui-car-icon-common-invisible ui-car-lock-light"></div>
-            <div id="door-light" class="ui-car-light-common ui-car-icon-common-invisible ui-car-door-light"></div>
-            <div id="back-light" class="ui-car-light-common ui-car-icon-common-invisible ui-car-back-light"></div>
-            <div id="hood-light" class="ui-car-light-common ui-car-icon-common-invisible ui-car-hood-light"></div>
+            </div>
         </div>
     </div>
     <div id="footer" data-role="footer" class="footer car-footer" data-position="fixed" >
         <div class="car-bottom" align="center">
-            <div class="yellow-swiper-container swiper-content">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide black-slide n-yellow-first-slide"></div>
-                    <div class="swiper-slide black-slide">
-                        <div class="tpl-fbb-item-wrap">
-                            <div class="tpl-fbb-item-name">
-                                车轮
-                            </div>
-                            <div class="tpl-fbb-item-line"></div>
-                            <div class="tpl-fbb-item-icon">
-                                <img src="images/car-wheel.jpg" width="30" height="30">
-                            </div>
-                            <div class="tpl-fbb-item-text">
-                                螺栓、螺母和其他螺纹连接机制
-                            </div>
-                            <div class="tpl-fbb-item-date"></div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide black-slide">
-                        <div class="tpl-fbb-item-wrap">
-                            <div class="tpl-fbb-item-name">
-                                车锁
-                            </div>
-                            <div class="tpl-fbb-item-line"></div>
-                            <div class="tpl-fbb-item-icon">
-                                <img src="images/car-lock.jpg" width="30" height="30">
-                            </div>
-                            <div class="tpl-fbb-item-text">
-                                待更新文案
-                            </div>
-                            <div class="tpl-fbb-item-date"></div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide black-slide">
-                        <div class="tpl-fbb-item-wrap">
-                            <div class="tpl-fbb-item-name">
-                                车门
-                            </div>
-                            <div class="tpl-fbb-item-line"></div>
-                            <div class="tpl-fbb-item-icon">
-                                <img src="images/car-door.jpg" width="30" height="30">
-                            </div>
-                            <div class="tpl-fbb-item-text">
-                                待更新文案
-                            </div>
-                            <div class="tpl-fbb-item-date"></div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide black-slide">
-                        <div class="tpl-fbb-item-wrap">
-                            <div class="tpl-fbb-item-name">
-                                后车箱
-                            </div>
-                            <div class="tpl-fbb-item-line"></div>
-                            <div class="tpl-fbb-item-icon">
-                                <img src="images/car-back.jpg" width="30" height="30">
-                            </div>
-                            <div class="tpl-fbb-item-text">
-                                待更新文案
-                            </div>
-                            <div class="tpl-fbb-item-date"></div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide black-slide">
-                        <div class="tpl-fbb-item-wrap">
-                            <div class="tpl-fbb-item-name">
-                                引擎盖
-                            </div>
-                            <div class="tpl-fbb-item-line"></div>
-                            <div class="tpl-fbb-item-icon">
-                                <img src="images/car-hood.jpg" width="30" height="30">
-                            </div>
-                            <div class="tpl-fbb-item-text">
-                                待更新文案
-                            </div>
-                            <div class="tpl-fbb-item-date"></div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide n-yellow-last-slide">
+            <div class="swiper-container swiper-content">
+                <div id="swiper-slides" class="swiper-wrapper">
 
-                    </div>
                 </div>
             </div>
             <div class="pagination"></div>
@@ -211,5 +197,62 @@
     </div>
 </div>
 
+<div id="template-light-rh" style="display: none">
+    <div id="wheel-light-rh" class="ui-car-light-common ui-car-icon-common-visible ui-car-wheel-light"></div>
+    <div id="lock-light-rh" class="ui-car-light-common ui-car-icon-common-invisible ui-car-lock-light"></div>
+    <div id="door-light-rh" class="ui-car-light-common ui-car-icon-common-invisible ui-car-door-light"></div>
+    <div id="hood-light-rh" class="ui-car-light-common ui-car-icon-common-invisible ui-car-hood-light"></div>
+</div>
+<div id="template-light-kx" style="display: none">
+    <div id="wheel-light-kx" class="ui-car-light-common ui-car-icon-common-visible ui-car-wheel-light"></div>
+    <div id="lock-light-kx" class="ui-car-light-common ui-car-icon-common-invisible ui-car-lock-light"></div>
+    <div id="door-light-kx" class="ui-car-light-common ui-car-icon-common-invisible ui-car-door-light"></div>
+    <div id="hood-light-kx" class="ui-car-light-common ui-car-icon-common-invisible ui-car-hood-light"></div>
+</div>
+<div id="template-light-jy" style="display: none">
+    <div id="wheel-light-jy" class="ui-car-light-common ui-car-icon-common-invisible  ui-car-wheel-light"></div>
+    <div id="lock-light-jy" class="ui-car-light-common ui-car-icon-common-invisible ui-car-lock-light"></div>
+    <div id="door-light-jy" class="ui-car-light-common ui-car-icon-common-invisible ui-car-door-light"></div>
+    <div id="hood-light-jy" class="ui-car-light-common ui-car-icon-common-visible ui-car-hood-light"></div>
+</div>
+<div id="template-slide-rh" style="display: none">
+					<div class="swiper-slide black-slide">
+                        <img src="images/rh_wheel.png">
+                    </div>
+                    <div class="swiper-slide black-slide">
+                        <img src="images/rh_lock.png">
+                    </div>
+                    <div class="swiper-slide black-slide">
+                        <img src="images/rh_door.png">
+                    </div>
+                    <div class="swiper-slide black-slide">
+                        <img src="images/rh_engine1.png">
+                    </div>
+                    <div class="swiper-slide black-slide">
+                        <img src="images/rh_engine2.png">
+                    </div>
+                    <div class="swiper-slide black-slide">
+                        <img src="images/rh_engine3.png">
+                    </div>
+                    <div class="swiper-slide black-slide">
+                        <img src="images/rh_engine4.png">
+                    </div>
+			</div>
+<div id="template-slide-kx" style="display: none">
+					<div class="swiper-slide black-slide">
+                        <img src="images/kx_wheel.png">
+                    </div>
+                    <div class="swiper-slide black-slide">
+                        <img src="images/kx_lock.png">
+                    </div>
+			</div>
+<div id="template-slide-jy" style="display: none">
+                    <div class="swiper-slide black-slide">
+                        <img src="images/jy_engine1.png">
+                    </div>
+                    <div class="swiper-slide black-slide">
+                        <img src="images/jy_engine2.png">
+                    </div>
+			</div>
 </body>
 </html>

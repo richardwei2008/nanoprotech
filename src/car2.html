@@ -1,0 +1,129 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>NANO PROTECH</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"/>
+    <meta content="telephone=no" name="format-detection"/>
+    <meta content="yes" name="apple-mobile-web-app-capable"/>
+    <meta content="black" name="apple-mobile-web-app-status-bar-style"/>
+
+
+    <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.4.min.css">
+    <link rel="stylesheet" type="text/css" href="css/idangerous.swiper-2.7.0.css">
+    <link rel="stylesheet" type="text/css" href="css/app-0.0.1.css">
+    <link rel="stylesheet" type="text/css" href="css/showcase.css">
+    <link rel="stylesheet" type="text/css" href="css/car-slide.css">
+
+
+    <script src="js/jquery-1.11.1.min.js" type="text/javascript"></script>
+    <script src="js/jquery.tmpl.js" type="text/javascript"></script>
+    <script src="js/jquery.mobile-1.4.4.min.js" type="text/javascript"></script>
+    <script src="js/idangerous.swiper-2.7.0.min.js" type="text/javascript"></script>
+
+    <script src="js/app.config.js"></script>
+    <script src="js/app.js"></script>
+    <script>
+        $(window).load(function () {
+            var back = function() {
+                window.location.href = "index.html";
+            };
+            $("#home").bind("click", back);
+
+
+        });
+
+
+    </script>
+</head>
+<body>
+
+<div id="page" data-role="page" class="page-car" data-theme="d">
+    <div class="ui-header-custom" data-role="header">
+        <a id="home" class="ui-link-back-home" data-role="none" href="#" align="right"><img src="images/back_32.png"></a>
+    </div>
+    <div class="ui-content-custom" data-role="content" data-theme="d">
+        <div id="center" class="center ui-car-background">
+            <div id="rh" class="ui-car-icon-common ui-car-icon-yellow ui-car-icon-active"></div>
+            <div id="kx" class="ui-car-icon-common ui-car-icon-red"></div>
+            <div id="jy" class="ui-car-icon-common ui-car-icon-blue"></div>
+            <div id="lights">
+
+            </div>
+        </div>
+    </div>
+    <div id="footer" data-role="footer" class="footer car-footer" data-position="fixed" >
+        <div class="car-bottom" align="center">
+            <!--<div class="swiper-container swiper-content">-->
+                <!--<div id="swiper-slides" class="swiper-wrapper">-->
+
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="pagination"></div>-->
+            <video src="videos/car-rh.mp4" width="320px" height="192px" controls="controls">
+                您的浏览器不支持 video 标签。
+            </video>
+        </div>
+    </div>
+</div>
+
+<div id="template-light-rh" style="display: none">
+    <div id="wheel-light-rh" class="ui-car-light-common ui-car-icon-common-visible ui-car-wheel-light"></div>
+    <div id="lock-light-rh" class="ui-car-light-common ui-car-icon-common-invisible ui-car-lock-light"></div>
+    <div id="door-light-rh" class="ui-car-light-common ui-car-icon-common-invisible ui-car-door-light"></div>
+    <div id="hood-light-rh" class="ui-car-light-common ui-car-icon-common-invisible ui-car-hood-light"></div>
+</div>
+<div id="template-light-kx" style="display: none">
+    <div id="wheel-light-kx" class="ui-car-light-common ui-car-icon-common-visible ui-car-wheel-light"></div>
+    <div id="lock-light-kx" class="ui-car-light-common ui-car-icon-common-invisible ui-car-lock-light"></div>
+    <div id="door-light-kx" class="ui-car-light-common ui-car-icon-common-invisible ui-car-door-light"></div>
+    <div id="hood-light-kx" class="ui-car-light-common ui-car-icon-common-invisible ui-car-hood-light"></div>
+</div>
+<div id="template-light-jy" style="display: none">
+    <div id="wheel-light-jy" class="ui-car-light-common ui-car-icon-common-invisible  ui-car-wheel-light"></div>
+    <div id="lock-light-jy" class="ui-car-light-common ui-car-icon-common-invisible ui-car-lock-light"></div>
+    <div id="door-light-jy" class="ui-car-light-common ui-car-icon-common-invisible ui-car-door-light"></div>
+    <div id="hood-light-jy" class="ui-car-light-common ui-car-icon-common-visible ui-car-hood-light"></div>
+</div>
+<div id="template-slide-rh" style="display: none">
+					<div class="swiper-slide black-slide">
+                        <img src="images/rh_wheel.png">
+                    </div>
+                    <div class="swiper-slide black-slide">
+                        <img src="images/rh_lock.png">
+                    </div>
+                    <div class="swiper-slide black-slide">
+                        <img src="images/rh_door.png">
+                    </div>
+                    <div class="swiper-slide black-slide">
+                        <img src="images/rh_engine1.png">
+                    </div>
+                    <div class="swiper-slide black-slide">
+                        <img src="images/rh_engine2.png">
+                    </div>
+                    <div class="swiper-slide black-slide">
+                        <img src="images/rh_engine3.png">
+                    </div>
+                    <div class="swiper-slide black-slide">
+                        <img src="images/rh_engine4.png">
+                    </div>
+			</div>
+<div id="template-slide-kx" style="display: none">
+					<div class="swiper-slide black-slide">
+                        <img src="images/kx_wheel.png">
+                    </div>
+                    <div class="swiper-slide black-slide">
+                        <img src="images/kx_lock.png">
+                    </div>
+			</div>
+<div id="template-slide-jy" style="display: none">
+                    <div class="swiper-slide black-slide">
+                        <img src="images/jy_engine1.png">
+                    </div>
+                    <div class="swiper-slide black-slide">
+                        <img src="images/jy_engine2.png">
+                    </div>
+			</div>
+</body>
+</html>

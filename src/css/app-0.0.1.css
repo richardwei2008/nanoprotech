@@ -8,15 +8,14 @@ body, html, form {
     margin: 0;
     padding: 0;
     color: #FFFFFF;
-    background-color: #000000;
+    background-color: #FFFFFF;
     max-width: 1024px;
     height: 100%;
     -webkit-text-size-adjust: none;
 }
 a:link {
     cursor: pointer;
-    /*color: rgb(243, 138, 31);*/
-    color: #F38A1F;
+    color: rgb(243, 138, 31);
 }
 /*a:visited, a:hover, a:active {*/
     /*cursor: pointer;*/
@@ -34,18 +33,19 @@ img {
 }
 .ui-content-custom {
     padding: 0!important;
-    /*height: 326px;*/
+    min-height: 300px;
 }
 .page-home {
-    background: url('../images/home.jpg') no-repeat!important;
-    background-position: center!important;
-    background-size: 100% 100%!important;
-    -webkit-background-size: 100% 100% !important;
-    -moz-background-size: 100% 100%!important;
-    -o-background-size: 100% 100%!important;
+    /*background: url('../images/home.jpg') no-repeat;*/
+    /*background-position: center!important;*/
+    /*background-size: 100% 100%!important;*/
+    /*-webkit-background-size: 100% 100% !important;*/
+    /*-moz-background-size: 100% 100%!important;*/
+    /*-o-background-size: 100% 100%!important;*/
     width: 100%!important;
     padding-left: 0!important;
     padding-right: 0!important;
+    color: #FFFFFF;
     /*background-color: #000000!important;*/
     /*height: auto;*/
     /*padding-bottom: 60px;*/
@@ -67,21 +67,20 @@ img {
     width: 100%;
 }
 .home-table {
+    margin-top: 100px;
     height: 160px;
     width: 100%;
     border-spacing :0!important;
 }
-.home-table-left {
-    border-right: 2px solid;
+.home-table-lower {
+    /*border-right: 2px solid;*/
     /*border-color: rgb(17, 46, 127) ;*/
-    border-color: #112E7F ;
     vertical-align:middle;
     text-align: center;
 }
-.home-table-right {
-    border-left: 2px solid;
+.home-table-upper {
+    /*border-left: 2px solid;*/
     /*border-color: rgb(17, 46, 127) ;*/
-    border-color: #112E7F ;
     vertical-align:middle;
     text-align: center;
 }
@@ -100,15 +99,15 @@ img {
     padding-right: 0!important;
 }
 .ui-enter-car {
-    background: url('../images/car_80.jpg') no-repeat!important;
-    background-position: center!important;
-    background-size: 100% 100%!important;
-    -webkit-background-size: 100% 100% !important;
-    -moz-background-size: 100% 100%!important;
-    -o-background-size: 100% 100%!important;
-    width: 80px;
-    height: 120px;
-    margin-left: 40px;
+    background: url('../images/car_320.png') no-repeat;
+    background-position: center;
+    background-size: 100% 100%;
+    -webkit-background-size: 100% 100%;
+    -moz-background-size: 100% 100%;
+    -o-background-size: 100% 100%;
+    width: 100%;
+    min-height: 240px;
+    margin: 0 auto;
     padding-left: 0!important;
     padding-right: 0!important;
 }
@@ -122,24 +121,22 @@ img {
     margin: 0 auto;
     padding-top: 5px;
     font-size: 9px;
-    /*color: rgb(243, 138, 31);*/
-    color: #F38A1F;
+    color: rgb(243, 138, 31);
 }
 .ui-link-enter-car {
     margin: 0 auto;
     padding-top: 5px;
     font-size: 9px;
-    /*color: rgb(243, 138, 31);*/
-    color: #F38A1F;
+    color: rgb(243, 138, 31);
 }
 
 .page-car {
-    background: url('../images/car.jpg') no-repeat!important;
-    background-position: center!important;
-    background-size: 100% 100%!important;
-    -webkit-background-size: 100% 100% !important;
-    -moz-background-size: 100% 100%!important;
-    -o-background-size: 100% 100%!important;
+    /*background: url('../images/car.jpg') no-repeat!important;*/
+    /*background-position: center!important;*/
+    /*background-size: 100% 100%!important;*/
+    /*-webkit-background-size: 100% 100% !important;*/
+    /*-moz-background-size: 100% 100%!important;*/
+    /*-o-background-size: 100% 100%!important;*/
     width: 100%!important;
     height: auto;
     padding-left: 0!important;
@@ -184,61 +181,61 @@ img {
 .car-footer {
     position: absolute;
     bottom: 0;
-    height: 200px!important;
-    border: 0!important;
-    border-top: 6px solid #F38A1F!important;
+    height: 192px!important;
     width: 100%!important;
     max-width: 1024px;
     color: #FFFFFF;
+    background-color: none!important;
     padding-bottom: 0px!important;
+    border: 0!important;
 }
 .car-bottom {
     position: relative;
-    height: 100%;
+    height: 192px;
     width: 100%;
+}
+.ui-car-background {
+    background: url('../images/car_320.png') no-repeat!important;
+    background-position: center!important;
+    background-size: 100% 100%!important;
+    -webkit-background-size: 100% 100% !important;
+    -moz-background-size: 100% 100%!important;
+    -o-background-size: 100% 100%!important;
+    height: 240px;
 }
 .ui-car-icon-common {
     width: 32px;
     height: 32px;
-    margin-left: 1em;
-    padding-left: 0!important;
-    padding-right: 0!important;
-    border: 1px solid;
-    border-bottom: 0px;
-    /*border-color: rgb(17, 46, 127) ;*/
-    border-color: #F38A1F ;
-    /*border-color: #112E7F ;*/
+    margin-left: 0.2em;
+    margin-top: 3px;
+    margin-bottom: 3px;
+    border: 2px solid;
+    border-color: #FFFFFF;
 }
-.ui-car-icon-common-last {
-    border-bottom: 1px solid;
-    /*border-color: rgb(17, 46, 127) ;*/
-    border-color: #F38A1F ;
-    /*border-color: #112E7F ;*/
-}
-.ui-car-icon-common-active {
-    background-color: #EDECEC ;
+.ui-car-icon-active {
+    background-color: #282828;
+    border: 2px solid;
+    border-color: #A5A5A5;
 }
 .ui-car-icon-yellow {
-    /*background: url('../images/n_yellow_64.png') no-repeat;*/
-    /*background-position: center;*/
-    /*background-size: 100% 100%;*/
-    /*-webkit-background-size: 100% 100%;*/
-    /*-moz-background-size: 100% 100%;*/
-    /*-o-background-size: 100% 100%;*/
-    /*width: 32px;*/
-    /*height: 32px;*/
-}
-.ui-car-icon-red {
-    /*background: url('../images/n_red_64.png') no-repeat!important;*/
-    /*background-position: center!important;*/
-    /*background-size: 100% 100%!important;*/
-    /*-webkit-background-size: 100% 100% !important;*/
-    /*-moz-background-size: 100% 100%!important;*/
-    /*-o-background-size: 100% 100%!important;*/
+    background: url('../images/rh.png') no-repeat!important;
+    background-position: center!important;
+    background-size: 100% 100%!important;
+    -webkit-background-size: 100% 100% !important;
+    -moz-background-size: 100% 100%!important;
+    -o-background-size: 100% 100%!important;
 
 }
+.ui-car-icon-red {
+    background: url('../images/kx.png') no-repeat!important;
+    background-position: center!important;
+    background-size: 100% 100%!important;
+    -webkit-background-size: 100% 100% !important;
+    -moz-background-size: 100% 100%!important;
+    -o-background-size: 100% 100%!important;
+}
 .ui-car-icon-blue {
-    background: url('../images/n_blue_64.png') no-repeat!important;
+    background: url('../images/jy.png') no-repeat!important;
     background-position: center!important;
     background-size: 100% 100%!important;
     -webkit-background-size: 100% 100% !important;
